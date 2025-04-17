@@ -1,0 +1,31 @@
+
+<ion-content class="ion-padding">
+  <!-- Input for city name -->>
+  <ion-item>
+    <ion-input [(ngModel)]="cityName"  placeholder="Enter the city name"></ion-input>
+    <ion-button (click)="fetchWeather()" shape="round">Search</ion-button>
+  </ion-item>
+
+  <!-- Display weather data -->
+  <div *ngIf="weatherData">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>{{ weatherData.name }}</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <p>Temperature: {{ weatherData.main.temp }} (Celsius)</p>
+        <p>Condition: {{ weatherData.weather[0].description }}</p>
+        <p> Wind Speed: {{  weatherData.wind.speed }}</p>
+        <ion-button (click)="saveToFavourites()" shape="round">Save to favourites</ion-button>
+      </ion-card-content>
+    </ion-card>
+  </div>
+
+  <!-- Display favourites list -->
+  <ion-list>
+    <ion-list-header>Favourites List</ion-list-header>
+    <ion-item *ngFor="let city of favourites">
+      {{ city.name }} - {{ city.main.temp }} (Celsius)
+    </ion-item>
+  </ion-list>
+</ion-content>
