@@ -13,6 +13,7 @@
         <ion-card-title>{{ weatherData.name }}</ion-card-title>
       </ion-card-header>
       <ion-card-content>
+        <p> City Name: {{ weatherData.city.name }}</p>
         <p>Temperature: {{ weatherData.main.temp }} (Celsius)</p>
         <p>Condition: {{ weatherData.weather[0].description }}</p>
         <p> Wind Speed: {{  weatherData.wind.speed }}</p>
